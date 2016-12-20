@@ -1,0 +1,20 @@
+{
+  "name": "bellicose",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --inline"
+  },
+  "author": "angel vanegas",
+  "license": "ISC",
+  "dependencies": {
+    "sodiumjs": "^0.9.1",
+    "ts-loader": "^1.3.3",
+    "tsc": "^1.20150623.0",
+    "typescript": "^2.1.4",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
