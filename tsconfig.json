@@ -4,6 +4,8 @@
     "module": "commonjs"
   },
   "files": [
-    "./script.ts"
+    "./script.ts",
+    "./button.ts",
+    "./display.ts"
   ]
 }

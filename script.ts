@@ -1,29 +1,25 @@
-import { Cell, StreamSink} from 'sodiumjs';
+import NumButton from './button';
+import Display from './display';
 
-function currentText(input : HTMLInputElement) : Cell<string>{
-  var sKeyPress = new StreamSink<string>(),
-  text = sKeyPress.hold(input.value);
-
-  input.addEventListener('keyup', function(e){
-    sKeyPress.send(input.value);
-  })
-  return text;
+class OpButton {
+  constructor(operator){
+    "fd"
+  }
 }
 
-(function(){
-  var a = currentText(<HTMLInputElement>document.getElementById('a'))
-             .map(txt => parseInt(txt));
-  var b = currentText(<HTMLInputElement>document.getElementById('b'))
-            .map(txt => parseInt(txt));
-  var cSpan = document.getElementById('c');
-  var c = a.lift(b, function(x,y){
-    return x + y;
-  })
+(function init() {
+    var btn1 = new NumButton(<HTMLButtonElement>document.getElementById('button-1'))
+          .stream.map(u => parseInt(u))
 
-  c.listen(z => {
-    isNaN(z) ?
-      cSpan.innerHTML = "" :
-      cSpan.innerHTML = (z).toString();
-  })
+    var btn2 = new NumButton(<HTMLButtonElement>document.getElementById('button-2'))
+          .stream.map(u => parseInt(u))
+
+    var btn3 = new NumButton(<HTMLButtonElement>document.getElementById('button-3'))
+          .stream.map(u => parseInt(u))
+
+    var toDisplay = btn1.orElse(btn2)
+            .orElse(btn3);
+
+    var display = new Display(document.getElementById('display'), toDisplay);
 
 })()
