@@ -1,10 +1,13 @@
 class Display {
-  constructor(input, stream){
+  constructor(input, stream, clear){
+    clear.listen(u => {
+      if(u === "")
+      input.value = "0";
+    })
+    
     stream.listen(num => {
       if(input.value === "0")
         input.value = num.toString()
-      else if(num === "")
-        input.value = "0";
       else
         input.value += num.toString();
     });

@@ -6,6 +6,7 @@
   "files": [
     "./script.ts",
     "./button.ts",
-    "./display.ts"
+    "./display.ts",
+    "./btns.ts"
   ]
 }
