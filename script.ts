@@ -8,8 +8,11 @@ class OpButton {
 }
 
 (function init() {
-    var keyPad = new Keys();
+    const keyPad = new Keys();
 
-    const display = new Display(document.getElementById('display'), keyPad.toDisplay, keyPad.clr);
+    var value = keyPad.toDisplay.hold("");
+
+    const display = new Display(
+      <HTMLInputElement>document.getElementById('display'), value);
 
 })()

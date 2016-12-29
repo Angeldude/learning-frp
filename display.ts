@@ -1,15 +1,16 @@
+import { Cell } from 'sodiumjs';
+
 class Display {
-  constructor(input, stream, clear){
-    clear.listen(u => {
-      if(u === "")
-      input.value = "0";
-    })
-    
-    stream.listen(num => {
-      if(input.value === "0")
-        input.value = num.toString()
+  constructor(input : HTMLInputElement, cell : Cell<string>){
+
+    cell.listen(num => {
+      console.log(cell);
+      if(num === "")
+        input.value = "0";
+      else if(input.value === "0")
+        input.value = num;
       else
-        input.value += num.toString();
+        input.value += num;
     });
   }
 }
