@@ -1,10 +1,10 @@
 import { Cell } from 'sodiumjs';
 
 class Display {
+
   constructor(input : HTMLInputElement, cell : Cell<string>){
 
     cell.listen(num => {
-      console.log(cell);
       if(num === "")
         input.value = "0";
       else if(input.value === "0")
@@ -12,6 +12,7 @@ class Display {
       else
         input.value += num;
     });
+
   }
 }
 
