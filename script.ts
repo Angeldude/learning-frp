@@ -1,6 +1,6 @@
 import { Cell, StreamSink} from 'sodiumjs';
 
-function currentText(input){
+function currentText(input : HTMLInputElement) : Cell<string>{
   var sKeyPress = new StreamSink<string>(),
   text = sKeyPress.hold(input.value);
 
@@ -9,12 +9,6 @@ function currentText(input){
   })
   return text;
 }
-
-enum Key {
-  ONE, TWO
-}
-
-
 
 (function(){
   var a = currentText(<HTMLInputElement>document.getElementById('a'))
