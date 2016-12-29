@@ -13,6 +13,9 @@ class Keys {
     private btn8: Stream<string>;
     private btn9: Stream<string>;
     private clr: Stream<string>;
+    private plus: Stream<string>;
+    private minus: Stream<string>;
+
     public toDisplay: Stream<string>;
 
     constructor() {
@@ -47,10 +50,17 @@ class Keys {
 
         this.clr = new NumButton(<HTMLButtonElement>document.getElementById('clear')).stream;
 
+        this.plus = new NumButton(<HTMLButtonElement>document.getElementById('button-plus'))
+            .stream;
+
+        this.minus = new NumButton(<HTMLButtonElement>document.getElementById('button-minus'))
+                .stream;
+
         this.toDisplay = this.btn1.orElse(this.btn2)
             .orElse(this.btn3).orElse(this.btn4).orElse(this.btn5)
             .orElse(this.btn6).orElse(this.btn7).orElse(this.btn8)
-            .orElse(this.btn9).orElse(this.btn0).orElse(this.clr);
+            .orElse(this.btn9).orElse(this.btn0).orElse(this.clr)
+            .orElse(this.plus).orElse(this.minus);
 
     }
 }
