@@ -5,8 +5,7 @@
   },
   "files": [
     "./script.ts",
-    "./button.ts",
-    "./display.ts",
-    "./btns.ts"
+    "./sdatefield.ts",
+    "./button.ts"
   ]
 }

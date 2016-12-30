@@ -1,12 +1,10 @@
-import Display from './display';
-import Keys from './btns';
+import SDateField from './sdatefield';
+import Button from './button';
+import { lambda2, Cell, Transaction } from 'sodiumjs';
 
-(function init() {
-    const keyPad = new Keys();
+const dep = new SDateField('dep');
+const ret = new SDateField('ret');
 
-    var value = keyPad.toDisplay.hold("");
+const valid : Cell<boolean> = dep.date.lift(ret.date, lambda2((d, r) => d <= r, [dep.date, ret.date]));
 
-    const display = new Display(
-      <HTMLInputElement>document.getElementById('display'), value);
-
-})()
+const btn = new Button('button', valid);
