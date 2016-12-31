@@ -1,14 +1,17 @@
-import { Cell, Transaction, Operational } from 'sodiumjs';
+import { Cell } from 'sodiumjs';
 
-class Button {
+class SButton {
 
     private btn: HTMLButtonElement;
     private listener;
-    constructor(id: string, enabled = new Cell<boolean>(false)) {
+    constructor(id: string, enabled = new Cell<boolean>(true)) {
         this.btn = <HTMLButtonElement>document.getElementById(id);
-        this.btn.disabled = enabled.sample();
+        this.btn.addEventListener('click', e => alert("appointment made!"))
 
+        enabled.listen(ena =>
+          this.btn.disabled = !ena
+      );
     }
 }
 
-export default Button;
+export default SButton;
