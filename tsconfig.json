@@ -6,6 +6,7 @@
   "files": [
     "./script.ts",
     "./sdatefield.ts",
-    "./button.ts"
+    "./button.ts",
+    "./rule.ts"
   ]
 }
