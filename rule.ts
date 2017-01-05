@@ -12,9 +12,9 @@ class Rule {
      return dep.lift(ret, lambda2(this.f, [dep,ret]));
   }
 
-  and(other : Rule) : Rule{
+  and(other : Rule): Rule {
     return new Rule((d,r) => {
-      return this.f.apply(d,r) && other.f.apply(d,r)
+      return this.f.apply(this, [d,r]) && other.f.apply(other, [d,r])
     });
   }
 }

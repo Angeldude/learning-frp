@@ -3,7 +3,7 @@ import SButton from './button';
 import Rule from './rule';
 
 const unlucky = function(dt : Date){
-  var day : number = dt.getUTCDate();
+  var day: number = dt.getUTCDate();
   return (day === 4 || day === 14 || day === 24);
 }
 

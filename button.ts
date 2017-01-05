@@ -1,4 +1,4 @@
-import { Cell, Operational, Transaction} from 'sodiumjs';
+import { Cell, Operational} from 'sodiumjs';
 
 class SButton {
 
@@ -8,8 +8,7 @@ class SButton {
         this.btn.addEventListener('click', e => console.log("appointment made!"))
 
         Operational.updates(enabled).listen(ena =>
-          { console.log(ena)
-          this.btn.disabled = !ena}
+          this.btn.disabled = !ena
       );
     }
 }
