@@ -4,9 +4,6 @@
     "module": "commonjs"
   },
   "files": [
-    "./script.ts",
-    "./sdatefield.ts",
-    "./button.ts",
-    "./rule.ts"
+    "./script.ts"
   ]
 }
