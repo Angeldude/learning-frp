@@ -32,5 +32,5 @@ class Label {
 }
 
 const txt = new TextField("hello", "text");
-const reversed = txt.text.map(e => e.split('').reverse().join(''));
+const reversed = txt.text.map(t => t.split('').reverse().join(''));
 const label = new Label(reversed, "lbl");
