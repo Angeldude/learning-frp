@@ -7,6 +7,10 @@ class CalcLogic {
     this.total = 0;
   }
 
+  setTotal(n: string){
+    this.total = this.convertToNum(n);
+  }
+
   add(n: string) {
     this.total += this.convertToNum(n);
   }
@@ -23,7 +27,13 @@ class CalcLogic {
     this.total /= this.convertToNum(n);
   }
 
+  getTotal(){
+    return this.total.toString();
+  }
+
   convertToNum(n: string){
     return parseInt(n);
   }
 }
+
+export default CalcLogic;
