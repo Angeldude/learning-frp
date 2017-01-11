@@ -4,6 +4,7 @@
     "module": "commonjs"
   },
   "files": [
-    "./script.ts"
+    "./script.ts",
+    "./calclogic.ts"
   ]
 }
