@@ -1,13 +1,14 @@
 import Button from './button';
-import TextField from './stextfield';
+import Label from './label';
 
-const onegai = new Button("onegai");
-const thanks = new Button("thanks");
+const red = new Button("red");
+const green = new Button("green");
 
-const japanese = onegai.stream.map(u => 'Onegai shimasu');
+const sRed = red.stream.map(u => "Red");
+const sGreen = green.stream.map(u => "Green");
 
-const english = thanks.stream.map( u => 'Thank you');
+const sMerged = sRed.orElse(sGreen);
 
-const scanned = japanese.orElse(english);
+const result = sMerged.hold("");
 
-const sText = new TextField("txtField", scanned);
+const sLabel = new Label("lbl", result );
