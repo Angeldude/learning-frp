@@ -7,8 +7,8 @@ const green = new Button("green");
 const sRed = red.stream.map(u => "Red");
 const sGreen = green.stream.map(u => "Green");
 
-const sMerged = sRed.orElse(sGreen);
+const sColor = sRed.orElse(sGreen);
 
-const result = sMerged.hold("");
+const result = sColor.hold("");
 
 const sLabel = new Label("lbl", result );
