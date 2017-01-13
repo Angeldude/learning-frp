@@ -1,8 +1,13 @@
 import Button from './button';
 import TextField from './stextfield';
 
-const clrButton = new Button("clear");
+const onegai = new Button("onegai");
+const thanks = new Button("thanks");
 
-const cleared = clrButton.clr.map( u => '');
+const japanese = onegai.stream.map(u => 'Onegai shimasu');
 
-const sText = new TextField("txtField", cleared);
+const english = thanks.stream.map( u => 'Thank you');
+
+const scanned = japanese.orElse(english);
+
+const sText = new TextField("txtField", scanned);
