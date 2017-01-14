@@ -10,4 +10,4 @@ const update = sDelta.accum(0, (eventVal, val) => {
 });
 
 const aString = update.map(e => e.toString());
-const sumLabel = new Label('sum', aString);
+const spinLabel = new Label('sum', aString);
