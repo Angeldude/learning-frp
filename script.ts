@@ -1,15 +1,19 @@
+import { CellLoop, Transaction } from 'sodiumjs';
 import Button from './button';
 import Label from './label';
-import TextField from './stextfield';
 
-const translate = function(unit, text: string): string{
-  return text === "" ? "" : text.split(' ').map(txt => txt + "us").join(' ');
-}
+const sPlus = new Button('plus').stream.map(u => 1);
+const sMinus = new Button('minus').stream.map(u => -1);
+const sDelta = sPlus.orElse(sMinus);
 
-const translateButton = new Button('trans');
-const textField = new TextField('text');
-const sLatin = translateButton.stream.snapshot(textField.text, translate);
+Transaction.run(() => {
+  const value = new CellLoop<number>();
+  const update = sDelta.snapshot(value, (eventVal, val) => eventVal + val)
+                .filter((a) => a >= 0);
 
-const latin = sLatin.hold('');
+  value.loop(update.hold(0));
 
-const transLabel = new Label('lbl', latin);
+  const aString = value.map(e => e.toString());
+  const sumLabel = new Label('sum', aString);
+
+})
