@@ -1,4 +1,3 @@
-import { CellLoop, Transaction } from 'sodiumjs';
 import Button from './button';
 import Label from './label';
 
