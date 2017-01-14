@@ -3,7 +3,7 @@ import { Stream, CellSink } from 'sodiumjs';
 class TextField {
 
   private txt: HTMLInputElement;
-  public sink;
+  private sink: CellSink<string>;
   constructor(id: string, btn: Stream<string>){
     this.txt = <HTMLInputElement>document.getElementById(id);
     btn.listen(s => {
