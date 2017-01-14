@@ -6,14 +6,9 @@ const sPlus = new Button('plus').stream.map(u => 1);
 const sMinus = new Button('minus').stream.map(u => -1);
 const sDelta = sPlus.orElse(sMinus);
 
-Transaction.run(() => {
-  const value = new CellLoop<number>();
-  const update = sDelta.snapshot(value, (eventVal, val) => eventVal + val)
-                .filter((a) => a >= 0);
+const update = sDelta.accum(0, (eventVal, val) => {
+  return (eventVal + val) >= 0 ? eventVal + val : 0;
+});
 
-  value.loop(update.hold(0));
-
-  const aString = value.map(e => e.toString());
-  const sumLabel = new Label('sum', aString);
-
-})
+const aString = update.map(e => e.toString());
+const sumLabel = new Label('sum', aString);
