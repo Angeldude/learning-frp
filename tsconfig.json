@@ -6,6 +6,7 @@
   "files": [
     "./script.ts",
     "./button.ts",
-    "./label.ts"
+    "./label.ts",
+    "./stextfield.ts"
   ]
 }

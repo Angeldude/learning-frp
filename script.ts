@@ -1,14 +1,17 @@
 import Button from './button';
 import Label from './label';
+import TextField from './stextfield';
 
-const red = new Button("red");
-const green = new Button("green");
+function translate(text: string): string{
+  return text.split(' ').map(e => e + "us").join(' ');
+}
 
-const sRed = red.stream.map(u => "Red");
-const sGreen = green.stream.map(u => "Green");
+const translateButton = new Button('trans');
+const textField = new TextField('text');
+const sLatin = translateButton.stream.snapshot(textField.text, (u,t)=> {
+  return translate(t);
+});
 
-const sColor = sRed.orElse(sGreen);
+const latin = sLatin.hold('');
 
-const result = sColor.hold("");
-
-const sLabel = new Label("lbl", result );
+const transLabel = new Label('lbl', latin);
